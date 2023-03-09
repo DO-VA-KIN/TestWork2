@@ -1,0 +1,11 @@
+C:\Users\pressF\Documents\Visual Studio 2017\Projects\Serealizer_\Serealizer_\bin\Debug\netcoreapp2.1\Serealizer_.deps.json
+C:\Users\pressF\Documents\Visual Studio 2017\Projects\Serealizer_\Serealizer_\bin\Debug\netcoreapp2.1\Serealizer_.runtimeconfig.json
+C:\Users\pressF\Documents\Visual Studio 2017\Projects\Serealizer_\Serealizer_\bin\Debug\netcoreapp2.1\Serealizer_.runtimeconfig.dev.json
+C:\Users\pressF\Documents\Visual Studio 2017\Projects\Serealizer_\Serealizer_\bin\Debug\netcoreapp2.1\Serealizer_.dll
+C:\Users\pressF\Documents\Visual Studio 2017\Projects\Serealizer_\Serealizer_\bin\Debug\netcoreapp2.1\Serealizer_.pdb
+C:\Users\pressF\Documents\Visual Studio 2017\Projects\Serealizer_\Serealizer_\obj\Debug\netcoreapp2.1\Serealizer_.csprojAssemblyReference.cache
+C:\Users\pressF\Documents\Visual Studio 2017\Projects\Serealizer_\Serealizer_\obj\Debug\netcoreapp2.1\Serealizer_.csproj.CoreCompileInputs.cache
+C:\Users\pressF\Documents\Visual Studio 2017\Projects\Serealizer_\Serealizer_\obj\Debug\netcoreapp2.1\Serealizer_.AssemblyInfoInputs.cache
+C:\Users\pressF\Documents\Visual Studio 2017\Projects\Serealizer_\Serealizer_\obj\Debug\netcoreapp2.1\Serealizer_.AssemblyInfo.cs
+C:\Users\pressF\Documents\Visual Studio 2017\Projects\Serealizer_\Serealizer_\obj\Debug\netcoreapp2.1\Serealizer_.dll
+C:\Users\pressF\Documents\Visual Studio 2017\Projects\Serealizer_\Serealizer_\obj\Debug\netcoreapp2.1\Serealizer_.pdb

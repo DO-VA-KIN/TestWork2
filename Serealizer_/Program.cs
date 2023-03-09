@@ -17,16 +17,13 @@ namespace Serealizer_
             using (FileStream stream = File.Open(Environment.CurrentDirectory + @"\serealize.txt", FileMode.Create))
                 listRandom.Serealize(stream);
 
-           // using (Stream stream = File.Open(Environment.CurrentDirectory + @"\serealize.txt", FileMode.Open))
-                //listRandom.Deserealize(stream);
+            using (Stream stream = File.Open(Environment.CurrentDirectory + @"\serealize.txt", FileMode.Open))
+                listRandom.Deserealize(stream);
 
         }
 
-
-
-
-
     }
+
 
     public class Example
     {

@@ -22,13 +22,14 @@ namespace Serealizer_
 
         public void Serealize(FileStream s)
         {
-            int num = -1;
             Encoding coder = Encoding.UTF8;
-            //s.Write(coder.GetBytes(count));
+            s.Write(coder.GetBytes(Count.ToString() + "\n"));
 
             ListNode current = Head;
             while(current != null)
             {
+                int num = -1;
+
                 ListNode current2 = Head;
                 for (int i = 0; current2 != null; i++)
                 {
@@ -55,49 +56,81 @@ namespace Serealizer_
         {
             //byte[] buff = new byte[s.Length]; //если большой объём данных не предполагается, то лучше считать всё сразу для большей скорости(или искать баланс загрузки оперативки и жесткого диска)
             //s.Read(buff);                     //но полагаю, задачи оптимизации в данном случае нет
-            ListNode lastPrevious = null;
+
+            string r = null;
             byte[] buff = new byte[1];
             Encoding coder = Encoding.UTF8;
 
-            ListNode current = Head = new ListNode();
-            while (s.Position < s.Length)
+            s.Read(buff);
+            string ch = coder.GetString(buff);
+            while (ch != "\n")
             {
-                string r = null;
-                string r2 = null;
-
+                r += ch;
                 s.Read(buff);
-                char ch = BitConverter.ToChar(buff);
-                while (ch != '<')
+                ch = coder.GetString(buff);
+            }
+            Count = Convert.ToInt32(r);
+            r = "";
+
+            ListNode[] nodes = new ListNode[Count];
+            for (int i = 0; i < nodes.Length; i++)
+            {
+                nodes[i] = new ListNode();
+                nodes[i].Next = new ListNode();
+                nodes[i].Previous = new ListNode();
+                nodes[i].Random = new ListNode();
+            }
+
+
+            for (int i = 0; i < nodes.Length; i++)
+            {
+                s.Read(buff);
+                ch = coder.GetString(buff);
+                while (ch != "<")
                 {
-                    if (ch == '\n') break;
+                    if (ch == "\n")
+                    {
+                        s.Position--;
+                        break;
+                    }
                     r += ch;
                     s.Read(buff);
-                    ch = BitConverter.ToChar(buff);
+                    ch = coder.GetString(buff);
                 }
+                nodes[i].Data = r;
+
+                r = "";
                 s.Read(buff);
-                BitConverter.ToChar(buff);
-                while (ch != '>')
+                ch = coder.GetString(buff);
+                while (ch != ">")
                 {
-                    if (ch == '\n') break;
-                    r2 += ch;
+                    if (ch == "\n") break;
+                    r += ch;
                     s.Read(buff);
-                    BitConverter.ToChar(buff);
+                    ch = coder.GetString(buff);
                 }
 
-                current.Data = r;
+                if (r != "")
+                    nodes[i].Random = nodes[Convert.ToInt32(r)];
 
-                if (current != Head)
-                    current.Previous = lastPrevious;
-                lastPrevious = current;
-                
-                if (r2 != null)
+                if (i > 0)
+                    nodes[i].Previous = nodes[i - 1];
+
+                if (i < nodes.Length - 1)
+                    nodes[i].Next = nodes[i + 1];
+
+                r = "";
+                while (ch != "\n")
                 {
-
+                    s.Read(buff);
+                    ch = coder.GetString(buff);
                 }
-
-
             }
+            Head = nodes[0];
+            Tail = nodes[nodes.Length - 1];        
+
         }
+    
     }
    
 }
